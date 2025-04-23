@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "748738187380",
+    "project_id": "auth-5edcf",
+    "storage_bucket": "auth-5edcf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748738187380:android:36fcc7ce88700f4272c121",
+        "android_client_info": {
+          "package_name": "com.example.capstonedemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpGnDqkN0wLWyFzLs-DIOJP1v1wywORzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
