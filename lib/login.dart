@@ -1,5 +1,9 @@
+import "package:capstonedemo/forgot.dart";
+import "package:capstonedemo/signup.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:get/instance_manager.dart";
 
 
 class Login extends StatefulWidget {
@@ -43,6 +47,16 @@ class _LoginState extends State<Login> {
             ElevatedButton(
               onPressed: (()=> signIn()),
               child:  Text("Login"),
+            ),
+            SizedBox(height: 30,),
+            ElevatedButton(
+              onPressed: (()=> Get.to(Signup())),
+              child:  Text("Register Now"),
+            ),
+            SizedBox(height: 30,),
+            ElevatedButton(
+              onPressed: (()=> Get.to(Forgot())),
+              child:  Text("Forgot Password ?"),
             ),
           ],
         ),

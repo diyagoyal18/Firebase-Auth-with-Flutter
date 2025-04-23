@@ -1,4 +1,4 @@
-# capstonedemo
+# Firebase Auth in Flutter Application
 
 A new Flutter project.
 
