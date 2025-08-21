@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../wallet/topup_page.dart';
+import '../wallet/transactions_page.dart';
+import '../pay/amount_page.dart';
 
 class WalletPage extends StatefulWidget {
   const WalletPage({super.key});
@@ -18,6 +21,18 @@ class _WalletPageState extends State<WalletPage> {
     await Future.delayed(const Duration(milliseconds: 500));
     if (!mounted) return;
     setState(() => _refreshing = false);
+  }
+
+  void _goToPay() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AmountPage()));
+  }
+
+  void _goToTopUp() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const TopUpPage()));
+  }
+
+  void _goToTransactions() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const TransactionsPage()));
   }
 
   @override
@@ -58,20 +73,29 @@ class _WalletPageState extends State<WalletPage> {
             children: [
               Expanded(
                 child: FilledButton.icon(
-                  onPressed: () {},
+                  onPressed: _goToPay,
                   icon: const Icon(Icons.qr_code_scanner),
-                  label: const Text('Pay (UI only)'),
+                  label: const Text('Pay'),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: OutlinedButton.icon(
-                  onPressed: () {},
+                  onPressed: _goToTopUp,
                   icon: const Icon(Icons.add),
                   label: const Text('Add Money'),
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: _goToTransactions,
+              icon: const Icon(Icons.receipt_long),
+              label: const Text('View all transactions'),
+            ),
           ),
           const SizedBox(height: 16),
           const ListTile(
@@ -79,7 +103,7 @@ class _WalletPageState extends State<WalletPage> {
             subtitle: Text('UI preview — connect to backend later'),
           ),
           const SizedBox(height: 8),
-          ...List.generate(8, (i) {
+          ...List.generate(6, (i) {
             final debit = i.isOdd;
             return Card(
               child: ListTile(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../bracelet/pairing_wizard_page.dart';
+import '../bracelet/fingerprint_enroll_page.dart';
 
 class BraceletPage extends StatefulWidget {
   const BraceletPage({super.key});
@@ -21,6 +23,14 @@ class _BraceletPageState extends State<BraceletPage> {
   void _toggleActive(bool on) async {
     await Future.delayed(const Duration(milliseconds: 200));
     setState(() => _active = on);
+  }
+
+  void _goToPair() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PairingWizardPage()));
+  }
+
+  void _goToEnroll() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FingerprintEnrollPage()));
   }
 
   @override
@@ -46,6 +56,26 @@ class _BraceletPageState extends State<BraceletPage> {
               value: _active,
               onChanged: _toggleActive,
             ),
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton.icon(
+                  onPressed: _goToPair,
+                  icon: const Icon(Icons.link),
+                  label: const Text('Pair Bracelet'),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: _goToEnroll,
+                  icon: const Icon(Icons.fingerprint),
+                  label: const Text('Enroll Fingerprint'),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 12),
           FilledButton.icon(
