@@ -24,7 +24,7 @@ class PaymentConfirmPage extends StatelessWidget {
             const Card(
               child: ListTile(
                 title: Text('To'),
-                subtitle: Text('RFID Bracelet (UI only)'),
+                subtitle: Text('RFID Bracelet'),
               ),
             ),
             const Spacer(),
@@ -37,7 +37,7 @@ class PaymentConfirmPage extends StatelessWidget {
                   ));
                 },
                 icon: const Icon(Icons.lock),
-                label: const Text('Verify & Pay (UI only)'),
+                label: const Text('Verify & Pay'),
               ),
             ),
           ],

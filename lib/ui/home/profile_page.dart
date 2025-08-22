@@ -56,7 +56,7 @@ class ProfilePage extends StatelessWidget {
         ListTile(
           leading: const Icon(Icons.info_outline),
           title: const Text('About'),
-          subtitle: const Text('Version 1.0.0 (UI only)'),
+          subtitle: const Text('Version 1.0.0 '),
         ),
         const SizedBox(height: 12),
         FilledButton.icon(

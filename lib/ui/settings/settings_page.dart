@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../theme/app_theme.dart';
 import 'security_page.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -10,7 +11,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool _notifyPayments = true;
-  bool _darkMode = false;
+  bool _darkMode = AppTheme.isDark;
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +20,17 @@ class _SettingsPageState extends State<SettingsPage> {
       body: ListView(
         children: [
           SwitchListTile(
+            title: const Text('Dark mode'),
+            value: _darkMode,
+            onChanged: (v) async {
+              setState(() => _darkMode = v);
+              await AppTheme.setDark(v);
+            },
+          ),
+          SwitchListTile(
             title: const Text('Payment notifications'),
             value: _notifyPayments,
             onChanged: (v) => setState(() => _notifyPayments = v),
-          ),
-          SwitchListTile(
-            title: const Text('Dark mode (UI only)'),
-            value: _darkMode,
-            onChanged: (v) => setState(() => _darkMode = v),
           ),
           const Divider(),
           ListTile(
@@ -43,7 +47,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ListTile(
             leading: const Icon(Icons.info_outline),
             title: const Text('About'),
-            subtitle: const Text('Version 1.0.0 (UI only)'),
+            subtitle: const Text('Version 1.0.0'),
           ),
         ],
       ),

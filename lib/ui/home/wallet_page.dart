@@ -100,7 +100,7 @@ class _WalletPageState extends State<WalletPage> {
           const SizedBox(height: 16),
           const ListTile(
             title: Text('Recent Transactions'),
-            subtitle: Text('UI preview — connect to backend later'),
+            // subtitle: Text('UI preview — connect to backend later'),
           ),
           const SizedBox(height: 8),
           ...List.generate(6, (i) {
@@ -112,7 +112,7 @@ class _WalletPageState extends State<WalletPage> {
                   child: Icon(debit ? Icons.south_west : Icons.north_east, color: cs.onSecondaryContainer),
                 ),
                 title: Text(debit ? 'Payment #${i + 1}' : 'Top-up #${i + 1}'),
-                subtitle: const Text('UI only'),
+                // subtitle: const Text('UI only'),
                 trailing: Text(
                   (debit ? '- ' : '+ ') + '₹${(50 * (i + 1)).toStringAsFixed(0)}',
                   style: TextStyle(color: debit ? cs.error : cs.primary, fontWeight: FontWeight.w600),

@@ -27,7 +27,7 @@ class _SecurityPageState extends State<SecurityPage> {
             ),
             const SizedBox(height: 12),
             SwitchListTile(
-              title: const Text('Enable biometric (UI only)'),
+              title: const Text('Enable biometric'),
               value: _biometric,
               onChanged: (v) => setState(() => _biometric = v),
             ),
@@ -36,7 +36,7 @@ class _SecurityPageState extends State<SecurityPage> {
               width: double.infinity,
               child: FilledButton.icon(
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Security settings saved (UI only)')));
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Security settings saved')));
                   Navigator.of(context).pop();
                 },
                 icon: const Icon(Icons.check),
